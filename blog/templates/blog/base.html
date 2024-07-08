@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}MultiAxis.blog{% endblock %}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- Additional CSS files or stylesheets can be linked here -->
     <style>
-        /* Custom CSS styles can be added here */
         body {
-            padding-top: 4.5rem; /* Adjust according to your navbar height */
+            padding-top: 4.5rem;
         }
     </style>
 </head>
@@ -24,11 +22,6 @@
                 <li class="nav-item {% if request.path == '/' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'post-list' %}">Home</a>
                 </li>
-                <!-- Add more navigation items as needed -->
-                <!-- Example: -->
-                <!-- <li class="nav-item {% if request.path == '/about/' %}active{% endif %}">
-                    <a class="nav-link" href="{% url 'about' %}">About</a>
-                </li> -->
             </ul>
             <ul class="navbar-nav ml-auto">
                 {% if user.is_authenticated %}
@@ -46,7 +39,6 @@
 
     <main role="main" class="container">
         {% block content %}
-        <!-- Default content for child templates -->
         {% endblock %}
     </main>
 
@@ -56,10 +48,8 @@
         </div>
     </footer>
 
-    <!-- Bootstrap and other JS libraries -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- Additional scripts can be included here -->
 </body>
 </html>
