@@ -63,7 +63,7 @@ WSGI_APPLICATION = 'machinist_blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join('/tmp', 'db.sqlite3'),  # Use the /tmp directory
+        'NAME': os.path.join(BASE_DIR, 'db', 'db.sqlite3'),  # Use the db directory within your project
     }
 }
 

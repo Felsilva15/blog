@@ -1,13 +1,15 @@
 {
-    "builds": [{
+    "builds": [
+      {
         "src": "machinist_blog/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    }],
+        "use": "@vercel/python"
+      }
+    ],
     "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "machinist_blog/wsgi.py"
-        }
-    ]
-}
+      {
+        "src": "/(.*)",
+        "dest": "machinist_blog/wsgi.py"
+      }
+    ],
+    "buildCommand": "python manage.py migrate"
+  }
