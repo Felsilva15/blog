@@ -2,17 +2,22 @@
 
 import os
 from pathlib import Path
+import environ
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env(os.path.join(Path(__file__).resolve().parent.parent, '.env'))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'your-secret-key'
+SECRET_KEY = env('SECRET_KEY', default='your-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['blog-eight-lovat-70.vercel.app', '.vercel.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['blog-eight-lovat-70.vercel.app', '.vercel.app', '127.0.0.1', 'localhost'])
 
 # Application definition
 
@@ -59,11 +64,14 @@ WSGI_APPLICATION = 'machinist_blog.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db', 'db.sqlite3'),  # Use the db directory within your project
+        'ENGINE': env('DB_ENGINE', default='django.db.backends.sqlite3'),
+        'NAME': env('DB_NAME', default=os.path.join(BASE_DIR, 'db', 'db.sqlite3')),
+        'USER': env('DB_USER', default=''),
+        'PASSWORD': env('DB_PASSWORD', default=''),
+        'HOST': env('DB_HOST', default=''),
+        'PORT': env('DB_PORT', default=''),
     }
 }
 
