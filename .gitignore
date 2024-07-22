@@ -30,3 +30,4 @@ env.bak/
 env/
 .idea/
 .vscode/
+.vercel
