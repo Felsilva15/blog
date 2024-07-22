@@ -1,15 +1,9 @@
 {
-    "builds": [
-      {
-        "src": "machinist_blog/wsgi.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "machinist_blog/wsgi.py"
-      }
-    ],
-    "buildCommand": "python manage.py migrate"
-  }
+  "builds": [
+    { "src": "machinist_blog/wsgi.py", "use": "@vercel/python" },
+    { "src": "machinist_blog/asgi.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "machinist_blog/wsgi.py" }
+  ]
+}
