@@ -10,5 +10,5 @@
   "env": {
     "DATABASE_URL": "/tmp/db.sqlite3"
   },
-  "buildCommand": "python manage.py migrate"
+  "buildCommand": "python manage.py migrate && vercel build"
 }
