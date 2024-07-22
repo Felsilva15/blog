@@ -13,9 +13,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = env('SECRET_KEY', default='your-secret-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DEBUG', default=True)
+DEBUG = env.bool('DEBUG', default=False)  # Set to False for production
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['blog-eight-lovat-70.vercel.app', '.vercel.app', '127.0.0.1', 'localhost'])
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['your-vercel-domain.vercel.app', '.vercel.app', '127.0.0.1', 'localhost'])
 
 # Application definition
 
