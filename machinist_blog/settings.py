@@ -64,12 +64,8 @@ WSGI_APPLICATION = 'machinist_blog.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': env('DB_ENGINE', default='django.db.backends.sqlite3'),
-        'NAME': env('DB_NAME', default=os.path.join(BASE_DIR, 'db', 'db.sqlite3')),
-        'USER': env('DB_USER', default=''),
-        'PASSWORD': env('DB_PASSWORD', default=''),
-        'HOST': env('DB_HOST', default=''),
-        'PORT': env('DB_PORT', default=''),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join('/tmp', 'db.sqlite3'),  # Store the database in /tmp
     }
 }
 
