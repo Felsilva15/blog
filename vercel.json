@@ -1,8 +1,7 @@
 {
   "version": 2,
   "builds": [
-    { "src": "vercel_app.py", "use": "@vercel/python" },
-    { "src": "manage.py", "use": "@vercel/python" }
+    { "src": "vercel_app.py", "use": "@vercel/python" }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "vercel_app.py" }
@@ -10,9 +9,5 @@
   "env": {
     "DATABASE_URL": "/tmp/db.sqlite3"
   },
-  "build": {
-    "commands": [
-      "python manage.py migrate"
-    ]
-  }
+  "buildCommand": "python manage.py migrate"
 }
