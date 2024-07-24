@@ -8,7 +8,10 @@
     { "src": "/(.*)", "dest": "vercel_app.py" }
   ],
   "env": {
+    "SECRET_KEY": "your-secret-key",
+    "DEBUG": "False",
+    "ALLOWED_HOSTS": "your-vercel-domain.vercel.app,.vercel.app,127.0.0.1,localhost",
     "DATABASE_URL": "/tmp/db.sqlite3"
   },
-  "buildCommand": "python manage.py migrate && vercel build"
+  "buildCommand": "python manage.py migrate && python manage.py collectstatic --noinput && vercel build"
 }
